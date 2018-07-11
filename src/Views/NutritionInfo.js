@@ -6,6 +6,8 @@ import {
     CardTitle, 
     Row,
     Autocomplete,
+    CollectionItem,
+    Collection,
    } from 'react-materialize';
 
 import NutritionFacts from './NutritionFacts';
@@ -16,9 +18,6 @@ class MyNutritionInfo extends Component {
     Height: 0,
     Weight: 0,
     Sex: 'Male',
-    LoseWeightCardDisplay: '',
-    GainWeightCardDisplay: '',
-    GainMuscleMassCardDisplay: '',
     GainMuscleMassRadio: 'checked',
     searchTerm: '',
     searchData: {},
@@ -62,15 +61,13 @@ searchingForFood = debounce((event) => {
     {
         this.setState({nutrients: response})
     })
-    
   }
 
 render() {
-    console.log(this.state.listOfFoods)
     return (
       <main className='main' id='main' style={{paddingTop: '2%'}}>
         <Row>
-          <Col s={4} id='DropdownFoods' style = {{display: this.state.GainWeightCardDisplay}}>
+          <Col s={4} id='DropdownFoods'>
             <Row>
                 <Autocomplete onAutocomplete={this.showFacts} onChange={(e) => {
                     e.persist()
@@ -82,14 +79,22 @@ render() {
                     }
                 />
             </Row>
-            {this.state.nutrients ? <NutritionFacts nutrients = {this.state.nutrients}/> : ''}
 
           </Col>
 
-          <Col s={4} id='LoseWeightCard' style = {{display: this.state.LoseWeightCardDisplay}}>
+          <Col s={4} id='LoseWeightCard' >
             <CardPanel className="teal lighten-4 black-text">
               {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Tips To Lose Weight Placeholder</CardTitle>}
-              {this.state.listOfFoods.map(item => item.fields.item_name)}
+                <Collection>
+                  {this.state.listOfFoods.map(item => <CollectionItem>{item.fields.item_name}</CollectionItem>)}
+                </Collection>
+              
+            </CardPanel>
+          </Col>
+
+          <Col s={4} id='LoseWeightCard' >
+            <CardPanel className="teal lighten-4 black-text">
+              {this.state.nutrients ? <NutritionFacts nutrients = {this.state.nutrients}/> : ''}
             </CardPanel>
           </Col>
         </Row>

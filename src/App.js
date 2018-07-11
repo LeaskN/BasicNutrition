@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <main className='main' id='main'>
-          <Navbar brand='BasicNutrition' right className='blue lighten-2'>
+          <Navbar brand='GetFit' right className='blue lighten-2'>
             <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
             <NavItem><Link to="/">Home</Link></NavItem>
             <NavItem><Link to="/DietInfo">Diet Info</Link></NavItem>
