@@ -7,7 +7,7 @@ import {
     CardTitle, 
     Input,
     Button,
-   } from 'react-materialize';
+} from 'react-materialize';
 
 class DietInfo extends Component {
   state = {
@@ -27,14 +27,12 @@ class DietInfo extends Component {
     });
   }
 
- calculateBMI = (event) => {
-   console.log(event)
-  this.setState({
-    BMI: 703*(this.state.Weight/(this.state.Height * this.state.Height))
-  });
-}
+  calculateBMI = () => {
+    this.setState({
+      BMI: 703*(this.state.Weight/(this.state.Height * this.state.Height))
+    });
+  }
   showTips = (event) => {
-    console.log(event.target.value+'Card')
     if(event.target.value+'Card'==='LoseWeightCard'){
       this.setState({
         LoseWeightCardDisplay: '',
@@ -57,19 +55,20 @@ class DietInfo extends Component {
     return;
   }
 
-render() {
+  render() {
     return (
       <main className='main' id='main' style={{paddingTop: '2%'}}>
         <Row>
           <Col s={4}>
             <Row id='Inputs'>
-              <Input onChange={this.valueChanged} id='Height' placeholder='Height' s={6} label="Height:" />
-              <Input onChange={this.valueChanged} id='Weight' placeholder='Weight' s={6} label="Weight:" />
+              <Input onChange={this.valueChanged} id='Height' placeholder='Height' s={6} label="Height: (inches)" type="number" />
+              <Input onChange={this.valueChanged} id='Weight' placeholder='Weight' s={6} label="Weight:" type="number" />
               <Input onChange={this.valueChanged} name='sex' type='radio' value='Male' label='Male' />
               <Input onChange={this.valueChanged} name='sex' type='radio' value='Female' label='Female' />
               <Input s={12} label="Calculated BMI:" disabled placeholder={this.state.BMI}/>
             </Row>
             <Button onClick={this.calculateBMI} waves='light'>Calculate BMI</Button>
+            <img style={{marginTop: '10px'}} src="https://amp.businessinsider.com/images/57d291cadd0895c6308b46b0-750-580.png" alt="BMI CHART"></img>
           </Col>
           <Col s={4}>
             <Row id='Inputs'>
@@ -81,7 +80,7 @@ render() {
           <Col s={4} id='GainWeightCard' style = {{display: this.state.GainWeightCardDisplay}}>
             <CardPanel className="teal lighten-4 black-text">
               {/* {<CardTitle image='https://media.giphy.com/media/Xy2iikCuZ9li8/giphy.gif'><br/>Tips To Gain Weight</CardTitle>}                   */}
-              {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Tips To Gain Weight Placeholder</CardTitle>}
+              {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Tips To Gain Weight</CardTitle>}
               1. Add healthy calories. You don’t need to drastically change your diet. You can increase calories by adding nut or seed toppings, cheese, and healthy side dishes. Try almonds, sunflower seeds, fruit, or whole-grain, wheat toast.<br/>
               2. Go nutrient dense. Instead of eating empty calories and junk food, eat foods that are rich in nutrients. Consider high-protein meats, which can help you to build muscle. Also, choose nutritious carbohydrates, such as brown rice and other whole grains. This helps ensure your body is receiving as much nourishment as possible, even if you’re dealing with a reduced appetite.<br/>
               3. Snack away. Enjoy snacks that contain plenty of protein and healthy carbohydrates. Consider options like trail mix, protein bars or drinks, and crackers with hummus or peanut butter. Also, enjoy snacks that contain “good fats,” which are important for a healthy heart. Examples include nuts and avocados.<br/>
@@ -92,7 +91,7 @@ render() {
           <Col s={4} id='LoseWeightCard' style = {{display: this.state.LoseWeightCardDisplay}}>
             <CardPanel className="teal lighten-4 black-text">
               {/* {<CardTitle image='https://img.buzzfeed.com/buzzfeed-static/static/2015-01/13/12/enhanced/webdr03/anigif_original-grid-image-9796-1421168722-30.gif?crop=362:239;0,16}'><br/>Tips To Lose Weight</CardTitle>} */}
-              {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Tips To Lose Weight Placeholder</CardTitle>}
+              {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Tips To Lose Weight</CardTitle>}
               1. Eat a high-protein breakfast. <br/>
               2. Avoid sugary drinks and fruit juice. <br/>
               3. Drink water a half hour before meals. <br/>

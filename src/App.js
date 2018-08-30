@@ -18,29 +18,22 @@ class App extends Component {
   render() {
     return (
       <main className='main' id='main'>
-          <Navbar brand='GetFit' right className='blue lighten-2'>
-            <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
-            <NavItem><Link to="/">Home</Link></NavItem>
-            <NavItem><Link to="/DietInfo">Diet Info</Link></NavItem>
-            <NavItem><Link to="/NutritionInfo">Nutrition Info</Link></NavItem>
-            {/* <NavItem><Link to="/Visualization">Visualization</Link></NavItem> */}
-          </Navbar>
-            <Switch>
-              <Route exact path='/' component={Home}/>
-              <Route path='/Visualization' component={Visualization}/>
-              <Route path='/DietInfo' component={DietInfo}/>
-              <Route path='/NutritionInfo' component={NutritionInfo}/>
-              <Route path='*' component={NotFound}/>
-            </Switch>
+        <Navbar brand='GetFit' right className='blue lighten-2'>
+          <NavItem><Link to="/">Home</Link></NavItem>
+          <NavItem><Link to="/DietInfo">Diet Info</Link></NavItem>
+          <NavItem><Link to="/NutritionInfo">Nutrition Info</Link></NavItem>
+          {/* <NavItem><Link to="/Visualization">Visualization</Link></NavItem> */}
+        </Navbar>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/Visualization' component={Visualization}/>
+          <Route path='/DietInfo' component={DietInfo}/>
+          <Route path='/NutritionInfo' component={NutritionInfo}/>
+          <Route path='*' component={NotFound}/>
+        </Switch>
       </main>
     );
   }
-  // <Navbar brand='logo' right className='blue lighten-2'>
-  //           <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
-  //           <NavItem> <Link to="./Views/NutritionFacts">NutritionFacts</Link></NavItem>
-  //           <NavItem onClick={() => console.log('this will take you to the Food page')}>Food Info Page</NavItem>
-  //           <NavItem onClick={() => console.log('this will take you to the DietInfo page')}>DietInfo</NavItem>
-  //           <NavItem onClick={() => console.log('this will take you to the Visualization page')}>Visualization</NavItem>
 }
 
 export default App;

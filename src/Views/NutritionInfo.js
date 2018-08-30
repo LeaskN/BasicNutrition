@@ -84,7 +84,7 @@ render() {
 
           <Col s={4} id='LoseWeightCard' >
             <CardPanel className="teal lighten-4 black-text">
-              {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Tips To Lose Weight Placeholder</CardTitle>}
+              {<CardTitle image='https://i.gifer.com/7hhR.gif'><br/>Searched Foods:</CardTitle>}
                 <Collection>
                   {this.state.listOfFoods.map(item => <CollectionItem>{item.fields.item_name}</CollectionItem>)}
                 </Collection>

@@ -1,39 +1,34 @@
 import React from 'react';
 import { 
-    Row,
-    Col,
-    CardPanel,
-    Card,
-    CardTitle, 
-    Container
+  Row,
+  Col,
+  CardPanel,
+  Container
    } from 'react-materialize'
 
 const Home = () => {
-    return (
+  return (
     <Container>
-         <main className='main' id='main'>
-            <Row>
-                <Col s={12} >
-                    <CardPanel className="teal lighten-4 black-text">                  
-                    Click the Diet Info tab in the top right to calculate your BMI and find Diet tips based on what you'd like to achieve! Then click the Nutrition Info tab in the top right to find out food information. Happy dieting!
-                    </CardPanel>
-                </Col>
-                <Col s={12} m={7}>
-                </Col>
-            </Row>
-            <Row>
+      <main className='main' id='main'>
+      <Row>
+        <Col s={12} >
+          <CardPanel className="teal lighten-4 black-text">
+          GetFit helps people get into shape by giving direct, un-convoluted  information. <hr/> Click the Diet Info tab in the top right of the web page to calculate your BMI and also receive diet tips based on what you'd like to achieve! <hr/> Click the Nutrition Info tab, also located in the top right, to find out information on different foods you'd like to eat.<hr/> Happy dieting!
+          </CardPanel>
+        </Col>
+      </Row>
+      <Row>
+        <Col s={6}>
+          <video autoPlay muted src="Media/LandingHome.mp4" loop/>
+        </Col>
+        <Col s={6}>
+          <video autoPlay muted src="Media/LandingNutritionInfo.mp4" loop/>
+        </Col>
+      </Row>
+      </main>
+    </Container>
 
-              <Col s={6}>
-                  <video src="Media/LandingHome.mp4" autoPlay loop/>
-              </Col>
-              <Col s={6}>
-                  <video src="Media/LandingNutritionInfo.mp4" autoPlay loop/>
-              </Col>
-            </Row>
-        </main>
-     </Container>
-
-      );
+  );
 }
 
 export default Home;
